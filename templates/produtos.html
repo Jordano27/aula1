@@ -5,4 +5,20 @@
     <h1>Produtos</h1>
     <p>Listagem de produtos</p>
 
+    <p>Ultima Atualização: {{ "now" | date('d/m/y H:i:s' , 'America/Sao_Paulo')}}</p>
+
+    <table border="5">
+        <tr>
+            <th>Produto</th>
+            <th>Preço</th>
+        </tr>
+
+        {% for prod in produtos %}
+            <tr>
+                <th>{{prod.nome}}</th>
+                <th>{{prod.preço | number_format(2, ',','.')}}</th>
+            </tr>
+        {% endfor %}
+    </table>
+
 {% include "inc/footer.html" %}
