@@ -12,7 +12,7 @@
 
         'nome' => 'Jordano',
         'idade' => 17,
-        'titulo' => 'Título'
+        'titulo' => 'Título',
         
     ]);
 
