@@ -5,6 +5,9 @@
 
     if ($user == 'jordano' && $pass == '3453') {
         //echo "login feito com sucesso"
+        //crisr uma sessaõ para armazenar o usuário
+        session_start();
+        $_SESSION ['user'] = 'Jordano';
         header('location:boasvindas.php');
         die;
     } else {
