@@ -4,12 +4,11 @@ require('pdo.inc.php');
     $pass = $_POST['pass'];
 
     //cria aconsulta e aguarda os dados;
-    $sql = $conex ->prepare('select * from usuarios where username = :usr AND senha = :pass');
+    $sql = $conex ->prepare('select * from usuarios where username = :usr');
 
 //adiciona os dados na consulta
 
 $sql->bindParam(':usr', $user);
-$sql->bindParam(':pass', $pass);
 
 $sql->execute();
 
@@ -20,6 +19,15 @@ if ($sql->rowCount()) {
 
 $user  = $sql->fetch(PDO::FETCH_OBJ);
 
+    //verificar se a senha esta correta
+
+    if(!password_verify($pass, $user->senha)){
+
+          
+       header('location:login.php?erro=1');
+       die;
+
+    }
 
         //crisr uma sessaõ para armazenar o usuário
         session_start();
