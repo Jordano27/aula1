@@ -12,7 +12,6 @@
      placeholder="Email"></div>
      <div ><input type="text" name="nome"
      placeholder="Nome"></div>
-  
      <div><input type="checkbox" name="ativo" id="ativo" value= 1>ativo</div>
     <div><input type="submit" value="Gravar"></div>
 
