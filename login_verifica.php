@@ -4,7 +4,7 @@ require('pdo.inc.php');
     $pass = $_POST['pass'];
 
     //cria aconsulta e aguarda os dados;
-    $sql = $conex ->prepare('select * from usuarios where username = :usr');
+    $sql = $conex ->prepare('select * from usuarios where username = :usr AND ativo = 1');
 
 //adiciona os dados na consulta
 

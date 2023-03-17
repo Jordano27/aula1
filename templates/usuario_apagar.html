@@ -2,4 +2,14 @@
 
     <h1>Apagar usuario</h1>
 
-{% include "inc/foot.html" %}
+    <p>Tem certeza de que quer fazer isso?</p>
+   <p>Tem certeza que deseja apagar o(a) {{usuario.username}} ?</p> 
+
+<form action="#" method="post">
+    <input type="hidden" name="id" value="{{usuario.id}}">
+    <input type="submit" value="Apagar ">
+</form>
+
+<div> <a href="usuarios.php">Cancelar</a></div>
+
+{% include "inc/footer.html" %}
