@@ -1,6 +1,6 @@
 <?php
-
-    use PHPMailer\PHPMailer\PHPMAILER;
+/*
+    use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\SMTP;
     use PHPMailer\PHPMailer\Exception;
 
@@ -13,3 +13,5 @@
     $mail->SMTPSecure = 'PHPMailer::ENCRYPTION_SMTPS';
     $mail->Username = 'jordanpoleto@gmail.com';
     $mail->Port =  465;
+
+    */
