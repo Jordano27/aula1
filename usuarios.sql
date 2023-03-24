@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `usuarios` (
-  `id` int(10) UNSIGNED NOT NULL,
+  `id` int(10) UNSIGNED NOT NULL ,
   `nome` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
@@ -36,17 +36,26 @@ CREATE TABLE `usuarios` (
   `admin` tinyint(4) NOT NULL DEFAULT 0,
   `ativo` tinyint(4) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
 --
 -- Extraindo dados da tabela `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nome`, `email`, `username`, `senha`, `admin`, `ativo`) VALUES
-(1, 'Rafael Jaques', 'rafael.jaques@bento.ifrs.edu.br', 'rafael', '123', 1, 1),
-(2, 'Fulano de Tal', 'fulano@detal.com', 'fulano', '123', 0, 1),
-(3, 'Jordano Poletto', 'Jordano.poletto@bento.ifrs.edu.br', 'Jotape', '123', 0, 1),
-(4, 'Jordan Orlando Poletto', 'jordanopoletto@gmai.com', 'Jordano', '$2y$10$AYbgKvvSevSgmCtkH5DqTOCBLAwFVAN8uG9A7Cvf6.yjbWNRJmOqq', 0, 1);
-COMMIT;
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `usuarios`
+--
+
+CREATE TABLE `arquivos` (
+  `id` int(10) UNSIGNED NOT NULL PRIMARY KEY,
+  `id_usuario` int(10) UNSIGNED NOT NULL,
+  `arquivo` varchar(255) NOT NULL,
+  `data` DATETIME NOT NULL,
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+--
+-- Extraindo dados da tabela `usuarios`
+--
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

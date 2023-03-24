@@ -11,21 +11,29 @@
     }
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+       
         $password = $_POST['senha'] ?? false;
+        $password_confi = $_POST['senha_confirma'] ?? false;
         $password = trim($password);
+        $password_confi = trim($password_confi);
 
-        $sql = $conex->prepare('UPDATE usuarios set senha = :senha, recuperar_token = null where recuperar_token = :token');
-        $sql->execute([':senha' => password_hash($password, PASSWORD_BCRYPT), ':token' => $token, ]);
+        if($password == $password_confi){
+            $sql = $conex->prepare('UPDATE usuarios set senha = :senha, recuperar_token = null where recuperar_token = :token');
+            $sql->execute([':senha' => password_hash($password, PASSWORD_BCRYPT), ':token' => $token]);
 
-        header('location:login.php?erro=3');
-        die;
+            header('location:login.php?erro=3');
+            die;
+        } 
+
+        $msg = 'Senhas diferentes, por favor digite novamente';
+
     }
     
     $sql = $conex->prepare('SELECT * FROM usuarios where recuperar_token = ?');
     $sql->execute([$token]);
 
     if($sql->rowCount() == 1){
-        echo $twig-> render('recuperar_senha_escolher.html', ['token' => $token]);
+        echo $twig-> render('recuperar_senha_escolher.html', ['token' => $token, 'msg'=>$msg ?? false]);
 
     } else{
         header('location:login.php');
