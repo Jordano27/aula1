@@ -21,7 +21,7 @@
             $sql = $conex->prepare('UPDATE usuarios set senha = :senha, recuperar_token = null where recuperar_token = :token');
             $sql->execute([':senha' => password_hash($password, PASSWORD_BCRYPT), ':token' => $token]);
 
-            header('location:login.php?erro=3');
+            header('location:login.php?erro=3');  
             die;
         } 
 
