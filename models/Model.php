@@ -18,9 +18,9 @@
         protected $conex;
 
 
-        public function ___construct(){
+        public function __construct(){
             //descobre o nome da tabela
-            $tbl = get_class($this);
+            $tbl = strtolower(get_class($this));
             $tbl .= 's';
             $this->table = $tbl;
 
@@ -30,7 +30,19 @@
         }
 
         public function getAll(){
+                $sql=$this->conex->query("SELECT * FROM {$this->table}");
 
+                return $sql->fetchAll(PDO::FETCH_ASSOC);
         }
+        public function getById($id){
+            $sql=$this->conex->prepare("SELECT * FROM {$this->table} where id = :id");
+            $sql->bindValue(':id', $id);
+            $sql->execute();
 
+            return $sql->fetch(PDO::FETCH_ASSOC);
     }
+    }
+    //query() = executa a consulta direto
+    //prepare() = aguarda os binds e só executa depois do execute()
+    //fetchAll pega todos os valores
+    //fetch pega só um 
