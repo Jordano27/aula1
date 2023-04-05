@@ -5,5 +5,3 @@ require('twig_carregar.php');
 echo $twig->render('boasvindas.html',['user' => $_SESSION['user'],
 ]);
 ?>
-
-<a href="logaut.php">Sair</a>
