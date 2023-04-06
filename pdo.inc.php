@@ -1,5 +1,7 @@
 <?php
 
-    $conex = new PDO('mysql:host=localhost;dbname=identifica', 'root', '');
+$conex = new PDO('mysql:host=localhost;dbname=sistemat', 'root', '');
+
+    
 
     

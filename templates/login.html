@@ -1,34 +1,35 @@
 <link rel="stylesheet" href="login.css">
-<!--{% if erro == 1 %}
+{% if erro == 1 %}
     Esqueceu a senha, neh fela da puta😒!!!
 {% elseif erro == 2 %}
    Vai entra o caralho😁😁😁!!
 {% elseif erro == 3 %}
   Senha alterada com sucesso, parabéns👌!!!
-{% endif %}-->
+{% endif %}
 
 
-<form action="login_verifica.php" method="post" class="login">
-   <div class=".login__container">
-   <h1 class="login__title">Cartão de Acesso</h1>
+<form action="login_verifica.php" method="post">
+   
     <div>
 
-        <input type="text" name="user" id="usuario" class="login__input" placeholder="usuário">
+        <input type="text" name="user" id="usuario" placeholder="usuário">
 
     </div>
-<br>
+
     <div>
 
-        <input type="password" name="pass" id="senha" class="login__input" placeholder="senha">
+        <input type="password" name="pass" id="senha" placeholder="senha">
 
     </div>
-<br>
+
     <div>
 
-        <input type="submit" value="Acessar" class="login__submit">
+        <input type="submit" value="Acessar">
 
     </div>
-    
-</div>
+
 </form>
 
+<div> 
+<a href="recuperar_senha.php">Esqueci minha senha</a>
+</div>

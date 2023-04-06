@@ -41,8 +41,48 @@
 
             return $sql->fetch(PDO::FETCH_ASSOC);
     }
+
+        public function create($date){
+           //inicia a construção do sql
+            $sql = "INSERT INTO  {$this->table} ";
+
+        //Prepara os campos e placeholders
+
+        foreach(array_keys($date) as $field){
+            $sql_fields[] = "{$field} = :{$field}";
+        }
+
+        $sql_fields = implode(', ', $sql_fields);
+
+        //MONTA A CONSULTA
+
+        $sql .= " SET {$sql_fields}";
+
+
+        $insert = $this->conex->prepare($sql);
+/*//faz o bind nos valores
+        foreach ($date as $field => $value){
+            $insert -> bindValue(":{$field}", $value);
+        }*/
+
+
+        //roda a consulta
+
+        $insert->execute($date);
+        return $insert->errorInfo();
+
+
+
+          
+        }
     }
     //query() = executa a consulta direto
-    //prepare() = aguarda os binds e só executa depois do execute()
+    //prepare() = aguarda os binds e só executa depois ;
     //fetchAll pega todos os valores
     //fetch pega só um 
+    // $sql_fields = guarda todos os campos
+    //adiciona novos valores ao arrey
+    //prepare = prepara e executa dps;
+    //bindParam = Aguarda execute para fazer bind
+    //bindValue = Faz o bind no momento do comando
+    
