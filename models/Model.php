@@ -46,16 +46,13 @@
            //inicia a construção do sql
             $sql = "INSERT INTO  {$this->table} ";
 
+
         //Prepara os campos e placeholders
 
-        foreach(array_keys($date) as $field){
-            $sql_fields[] = "{$field} = :{$field}";
-        }
-
-        $sql_fields = implode(', ', $sql_fields);
+        
 
         //MONTA A CONSULTA
-
+            $sql_fields = $this->sql_fields($date);
         $sql .= " SET {$sql_fields}";
 
 
@@ -70,10 +67,20 @@
 
         $insert->execute($date);
         return $insert->errorInfo();
+ 
+        }
+
+        public function update($date, $id){
 
 
+        }
 
-          
+        private function sql_fields($date){
+            foreach(array_keys($date) as $field){
+                $sql_fields[] = "{$field} = :{$field}";
+            }
+    
+           return implode(', ', $sql_fields);
         }
     }
     //query() = executa a consulta direto

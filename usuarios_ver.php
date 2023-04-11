@@ -14,4 +14,4 @@ $info = $usr->getById($id);
 
 
 
-echo $twig->render('usuarios.html', ['usuarios' => $info]);
+echo $twig->render('usuario_ver.html', ['usuarios' => $info]);

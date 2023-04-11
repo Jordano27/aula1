@@ -25,7 +25,7 @@ $usr->create([
     'senha' => $pass,
     'nome' => $nome,
     'ativo' => 1,
-    'email' => $email
+    'email' => $email,
 
 ]);
 
