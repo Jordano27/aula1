@@ -72,7 +72,15 @@
 
         public function update($date, $id){
 
+            unset($date['id']);
+            $sql = "UPDATE {$this->table} ";
+            $sql .= ' SET ' . $this->sql_fields($date);
+            $sql.= 'WHERE id = :id';
 
+            $date['id'] = $id;
+
+            $upd = $this->conex->prepare($sql);
+            $upd->execute($date);
         }
 
         private function sql_fields($date){

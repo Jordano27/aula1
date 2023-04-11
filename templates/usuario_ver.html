@@ -1,7 +1,28 @@
-{% {% extends "inc/base.html" %}
+{% extends "inc/base.html" %}
 
 {% block conteudo %}
 
-    <p>Username: {{usuario.username}}</p>
+    <p>Username: {{usuarios.username}}</p>
+    
+
+    <form action="usuario_atualizar.php" method="post">
+
+        <input type="hidden" name="id" value="{{usuarios.id}}">
+        <div>
+        NOME:
+        <input type="text" name="nome" id="" value="{{usuarios.nome}}">
+        </div>
+
+        <div>
+        EMAIL:
+        <input type="email" name="email" id="" value="{{usuarios.email}}">
+        </div>
+
+        <div>
+        USER:
+        <input type="text" name="username" id="" value="{{usuarios.username}}">
+        </div>
+        <input type="submit" value="Atualizar">
+    </form>
 
 {% endblock %}
